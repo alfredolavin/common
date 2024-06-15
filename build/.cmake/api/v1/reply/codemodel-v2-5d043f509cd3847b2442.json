@@ -1,0 +1,123 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "common",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "common::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-common-Debug-45fa8426cd17d7dc5018.json",
+					"name" : "common",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "eeprom::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-eeprom-Debug-c0d1e31d5e9eef48434b.json",
+					"name" : "eeprom",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "flash::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-flash-Debug-ba35c89998bace84e979.json",
+					"name" : "flash",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hex::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hex-Debug-a0fa2d50a70d9558f6e8.json",
+					"name" : "hex",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "listing::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-listing-Debug-3b0d33729c59717a1f20.json",
+					"name" : "listing",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "map::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-map-Debug-bf84fb8781315ca11ec7.json",
+					"name" : "map",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "size::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-size-Debug-5495995e5d835acaa69a.json",
+					"name" : "size",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "strip::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-strip-Debug-96329523177e8b838140.json",
+					"name" : "strip",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/usr/proyectos/AVR/common/build",
+		"source" : "/home/usr/proyectos/AVR/common"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}
