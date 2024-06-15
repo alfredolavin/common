@@ -11,24 +11,13 @@
 //   using type = std::tuple_element_t<(log(value)/log(2)/8), std::tuple<u8, u16, u24, u32, u64>>;
 //     };
 
-template<u64 value> using smaller_int_t = std::tuple_element_t<(size_t)(log(value)/log(2)/8), std::tuple<u8, u16, u24, u32, u64>>;
+template<u64 value> using smaller_int_t = std::tuple_element_t<(size_t)(logf(value)/logf(2)/8), std::tuple<u8, u16, u24, u32, u64, u64, u64>>;
 
-template <std::integral... Ts>
-inline auto constexpr range(const Ts&&... _args) {
-  using int_t = u16;//smaller_int_t<max_arg>;
-
-  const size_t args_n = sizeof...(_args);
-  const int_t args[args_n] = {(int_t)_args... };
-  const int max_arg = std::max({_args... });
-
-  const int_t from_count = (args_n == 1) ? 0 : args[0];
-  const int_t to_count = (args_n == 1) ? args[0] : args[1];
-  const int_t step = (args_n == 3) ? args[2] : 1;
-
+inline auto constexpr pyRange(cu16 & _from, cu16 & _to, cu16 & step) {
   struct Iter {
-    int_t count;
-    int_t step;
-    bool operator!=(const int_t &rhs) const {
+    u16 count;
+    cu16 step;
+    bool operator!=(const u16 &rhs) const {
       return count<=rhs; } // oh!!!
     void operator++() {
       count+=step; }
@@ -36,63 +25,30 @@ inline auto constexpr range(const Ts&&... _args) {
       return count; } };
 
   struct _range {
-    int_t from_count;
-    int_t to_count;
-    int_t step;
-    auto begin() {
+    cu16 from_count;
+    cu16 to_count;
+    cu16 step;
+    auto begin() const {
       return Iter{from_count, step }; }
-    auto end() {
+    auto end() const {
       return to_count; } };
 
-  return _range{std::min(from_count, to_count),
-                std::max(from_count, to_count),
+  return _range{std::min(_from, _to),
+                std::max(_from, _to),
                 step }; }
 
+inline constexpr auto pyRange(cu16 & _from, cu16 & _to) {
+  return pyRange(_from, _to, (cu16)1); }
 
-template<std::integral ... Args>
-inline constexpr auto _range(Args... _args) {
-  //using
+inline constexpr auto pyRange(cu16 & _to) {
+  return pyRange((cu16)0, _to, (cu16)1); }
 
-  cu16 args_n =  sizeof...(_args),
-       args[] = {(uint8_t)_args... };
-  u16 start = (args_n == 1) ? 0 : args[0],
-      end = (args_n == 1) ? args[0] : args[1],
-      step = (args_n == 3) ? args[2] : 1;
-
-  start = std::min(start, end);
-  end = std::max(start, end);
-
-  return std::views::iota(0)
-  | std::views::transform([=](uint8_t x) {
-    return x * step + start; })
-  | std::views::take_while([=](uint8_t x) {
-    return x <= end; }); }
-
-// template<std::integral ... Args>
-// inline constexpr auto _range(Args... _args) {
-//   //using
-
-//   cu16 args_n =  sizeof...(_args),
-//     args[] = {(uint8_t)_args...};
-//     u16 start = (args_n == 1) ? 0 : args[0],
-//     end = (args_n == 1) ? args[0] : args[1],
-//     step = (args_n == 3) ? args[2] : 1;
-
-//     start = std::min(start, end);
-//     end = std::max(start, end);
-
-
-
-//   return std::views::iota(0)
-//         | std::views::transform([=](uint8_t x) { return x * step + start; })
-//         | std::views::take_while([=](uint8_t x) { return x <= end; });
-// }
 
 #define define_range(x, letter, int_type) int_type letter = 0; letter < (x); letter++
 
 #define iRange16(x) define_range(x, i, u16)
 #define iRange32(x) define_range(x, i, u32)
-#define iRange(x) (auto i : range((x)))
+#define iRange(x) auto i : pyRange(x) //define_range(x, i, u8)//auto i : pyRange(x)
 #define jRange(x) define_range(x, j, u8)
 #define kRange(x) define_range(x, k, u8)
 #define xRange(_x) define_range(_x, x, u8)

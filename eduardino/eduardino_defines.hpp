@@ -38,7 +38,7 @@ typedef const __uint24 cu24;
 typedef const uint32_t cu32;
 typedef const uint64_t cu64;
 
-template<std::size_t N, class T>
+template <std::size_t N, class T>
 constexpr std::size_t countof(T(&)[N]) { return N; }
 
 #define _used_ __attribute__((used))

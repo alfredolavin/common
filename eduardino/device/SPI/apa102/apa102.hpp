@@ -1,6 +1,6 @@
 #pragma once
-#include "../spi.hpp"
 #include <eduardino.hpp>
+#include "../spi.hpp"
 
 struct color_t {
   u8 b, g, r; };
@@ -30,7 +30,7 @@ struct APA102 {
       sendFrame(color); }
     endFrame(); }
 
-  __inline__ void sendFrame(const color_t color) {
+  _inline_ void sendFrame(const color_t color) {
     mSPI << (package_t) {
       brightness, color }; }
 
@@ -59,15 +59,9 @@ struct APA102 {
   static constexpr SPI_c & mSPI= spi0;
   const u8 length;
   brightness_t brightness = {value: 0b11111 };
+
   APA102(u8 _length):length(_length) {}
-  void begin();
-  void startFrame();
-  __inline__ void sendFrame(const color_t color);
-  void endFrame();
-  void update(const color_t color);
-  void update(const color_t colors[]);
 
   void operator <<(const color_t colors[]) {
     mSelf.update(colors); };
-
-  color_t HSV2RGB(u16 h, u8 s, u8 v); };
+};
