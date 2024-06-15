@@ -1,6 +1,11 @@
 #pragma once
 #include <eduardino.hpp>
 
+/*74HC595N*/
+pin_0(_74HC595N_update_pin);
+pin_1(_74HC595N_dat_pin);
+pin_2(_74HC595N_clk_pin);
+
 struct c74HC595N {
 public:
   void begin() {

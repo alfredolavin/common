@@ -42,7 +42,6 @@ template<std::size_t N, class T>
 constexpr std::size_t countof(T(&)[N]) { return N; }
 
 #define _used_ __attribute__((used))
-#define _weak_ __attribute__((weak))
 #define _packed_ __attribute__((packed))
 #define _inline_ __attribute__((always_inline))
 #define _no_return_ __attribute__((noreturn))
@@ -51,25 +50,6 @@ constexpr std::size_t countof(T(&)[N]) { return N; }
 
 #define mNullPointer ((u8*)Null)
 #define mSelf (*this)
-
-#define define_range(x, letter, int_type) int_type letter = 0; letter < (x); letter++
-
-#define iRange16(x) define_range(x, i, u16)
-#define iRange32(x) define_range(x, i, u32)
-#define iRange(x) define_range(x, i, u8)
-#define jRange(x) define_range(x, j, u8)
-#define kRange(x) define_range(x, k, u8)
-#define xRange(_x) define_range(_x, x, u8)
-#define yRange(x) define_range(x, y, u8)
-#define zRange(x) define_range(x, z, u8)
-
-#define iRangeLen(x) define_range(countof(x), i, u8)
-#define jRangeLen(x) define_range(countof(x), j, u8)
-#define kRangeLen(x) define_range(countof(x), k, u8)
-
-#define iRangeLen16(x) define_range(countof(x), i, u16)
-#define jRangeLen16(x) define_range(countof(x), j, u16)
-#define kRangeLen16(x) define_range(countof(x), k, u16)
 
 #define Nop() asm volatile ("nop\n\t")
 #define Wdr() asm volatile ("wdr\n\t")

@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/usr/proyectos/AVR/common/build",
+  "command": "/opt/AVR/root/bin/avr-g++ -DF_CPU=8000000 -I/home/usr/proyectos/AVR/common/eduardino -mmcu=attiny85  -g -ggdb -DF_CPU=8000000 -DBAUD=9600 -Os -lm -lprintf_flt -funsigned-char -funsigned-bitfields -fshort-enums -ffunction-sections -fdata-sections -g3 -Os -fno-exceptions -std=gnu++23 -fpermissive -g -o CMakeFiles/common.dir/eduardino/device/SPI/SPI.cpp.obj -c /home/usr/proyectos/AVR/common/eduardino/device/SPI/SPI.cpp",
+  "file": "/home/usr/proyectos/AVR/common/eduardino/device/SPI/SPI.cpp",
+  "output": "CMakeFiles/common.dir/eduardino/device/SPI/SPI.cpp.obj"
+},
+{
+  "directory": "/home/usr/proyectos/AVR/common/build",
+  "command": "/opt/AVR/root/bin/avr-g++ -DF_CPU=8000000 -I/home/usr/proyectos/AVR/common/eduardino -mmcu=attiny85  -g -ggdb -DF_CPU=8000000 -DBAUD=9600 -Os -lm -lprintf_flt -funsigned-char -funsigned-bitfields -fshort-enums -ffunction-sections -fdata-sections -g3 -Os -fno-exceptions -std=gnu++23 -fpermissive -g -o CMakeFiles/common.dir/eduardino/eduardino.cpp.obj -c /home/usr/proyectos/AVR/common/eduardino/eduardino.cpp",
+  "file": "/home/usr/proyectos/AVR/common/eduardino/eduardino.cpp",
+  "output": "CMakeFiles/common.dir/eduardino/eduardino.cpp.obj"
+}
+]

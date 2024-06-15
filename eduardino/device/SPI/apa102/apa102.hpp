@@ -11,7 +11,7 @@ struct brightness_t {
 
 struct package_t {
   brightness_t brightness;
-  color_t 		 color; };
+  color_t color; };
 
 struct APA102 {
 
@@ -23,7 +23,6 @@ struct APA102 {
     for(iRange(length)) {
       sendFrame(colors[i]); }
     endFrame(); }
-
 
   void update(const color_t color) {
     startFrame();
@@ -41,7 +40,6 @@ struct APA102 {
   void endFrame() {
     mSPI.repeatTx((length + 14)/16, 0x00); }
 
-
   color_t HSV2RGB(u16 h, u8 s, u8 v) {
     u8 f = (h % 60) * 255 / 60;
     u8 p = (255 - s) * (u16) v / 255;
@@ -58,16 +56,10 @@ struct APA102 {
     return (color_t ) {
       r, g, b } ; }
 
-
-protected:
   static constexpr SPI_c & mSPI= spi0;
   const u8 length;
-
-public:
   brightness_t brightness = {value: 0b11111 };
   APA102(u8 _length):length(_length) {}
-
-public:
   void begin();
   void startFrame();
   __inline__ void sendFrame(const color_t color);

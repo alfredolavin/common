@@ -16,8 +16,7 @@
                 "-fno-threadsafe-statics",
                 "-pipe",
                 "-Ieduardino",
-                "-mmcu=attiny85",
-                "-DF_CPU=8000000UL"
+                "-mmcu=attiny85"
             ],
             "defines": [
                 "__AVR_ATtiny85__=1",

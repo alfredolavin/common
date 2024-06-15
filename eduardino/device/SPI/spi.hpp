@@ -2,15 +2,40 @@
 #include "pinout.hpp"
 #include <avr/io.h>
 
-class SPI_c {
-	public:
+struct SPI_c {
 		_inline_ void repeatTx(u16 n, const u8 b= 0xFF){
 			while( n-- ) {
 				TxRx(b);}}
 
-		_inline_ u8 last() {return USIDR;}
-		const u8 TxRx(cu8 b);
-		void begin();
+const u8 TxRx(cu8 b) {
+	const u8 toggle = usiwm0 + usics1 + usiclk + usitc;
+	USIDR = b;
+	USISR = usioif;
+
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+	USICR= toggle;//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();//Nop();
+
+	return USIDR;}
+
+void begin() {
+	spi_clk_pin.oupinLo();
+	spi_mosi_pin.oupinLo();
+	spi_miso_pin.inpin();}
 
 		_inline_ auto & operator<<(const auto & data) {
 		Txs((u8*)(&data), sizeof(data));
