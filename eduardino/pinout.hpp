@@ -2,7 +2,7 @@
 #include <device/device.hpp>
 
 /* pins */
-#define pin_B(number) (pin_t){(const volatile pin_t::GPIO_t&)PINB, number};
+#define pin_B(number) pin_t{(pin_t::GPIO_t&)PINB, number}
 
 #define pin_0(name) static pin_t name = pin_B(0)
 #define pin_1(name) static pin_t name = pin_B(1)
