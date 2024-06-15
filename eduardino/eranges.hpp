@@ -18,8 +18,8 @@ inline auto constexpr range(const Ts&&... _args) {
   using int_t = u16;//smaller_int_t<max_arg>;
 
   const size_t args_n = sizeof...(_args);
-  const int_t args[args_n] = {(int_t)_args...}; 
-  const int max_arg = std::max({_args...});
+  const int_t args[args_n] = {(int_t)_args... };
+  const int max_arg = std::max({_args... });
 
   const int_t from_count = (args_n == 1) ? 0 : args[0];
   const int_t to_count = (args_n == 1) ? args[0] : args[1];
@@ -51,25 +51,26 @@ inline auto constexpr range(const Ts&&... _args) {
 
 template<std::integral ... Args>
 inline constexpr auto _range(Args... _args) {
-  //using 
+  //using
 
   cu16 args_n =  sizeof...(_args),
-    args[] = {(uint8_t)_args...};
-    u16 start = (args_n == 1) ? 0 : args[0],
-    end = (args_n == 1) ? args[0] : args[1],
-    step = (args_n == 3) ? args[2] : 1;
+       args[] = {(uint8_t)_args... };
+  u16 start = (args_n == 1) ? 0 : args[0],
+      end = (args_n == 1) ? args[0] : args[1],
+      step = (args_n == 3) ? args[2] : 1;
 
-    start = std::min(start, end);
-    end = std::max(start, end);
+  start = std::min(start, end);
+  end = std::max(start, end);
 
   return std::views::iota(0)
-        | std::views::transform([=](uint8_t x) { return x * step + start; })
-        | std::views::take_while([=](uint8_t x) { return x <= end; });
-}
+  | std::views::transform([=](uint8_t x) {
+    return x * step + start; })
+  | std::views::take_while([=](uint8_t x) {
+    return x <= end; }); }
 
 // template<std::integral ... Args>
 // inline constexpr auto _range(Args... _args) {
-//   //using 
+//   //using
 
 //   cu16 args_n =  sizeof...(_args),
 //     args[] = {(uint8_t)_args...};
