@@ -1,0 +1,111 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : {},
+				"path" : "/opt/AVR/root/bin/avr-gcc",
+				"version" : ""
+			},
+			"language" : "ASM",
+			"sourceFileExtensions" : 
+			[
+				"s",
+				"S",
+				"asm"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"/opt/AVR/root/lib/gcc/avr/14.1.0/include",
+						"/opt/AVR/root/lib/gcc/avr/14.1.0/include-fixed",
+						"/opt/AVR/root/avr/include"
+					],
+					"linkDirectories" : 
+					[
+						"/opt/AVR/root/lib/gcc/avr/14.1.0",
+						"/opt/AVR/root/avr/lib"
+					],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : 
+					[
+						"gcc",
+						"m",
+						"c"
+					]
+				},
+				"path" : "/opt/AVR/root/bin/avr-gcc",
+				"version" : "14.1.0"
+			},
+			"language" : "C",
+			"sourceFileExtensions" : 
+			[
+				"c",
+				"m"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"/opt/AVR/root/avr/include/c++/14.1.0",
+						"/opt/AVR/root/avr/include/c++/14.1.0/avr",
+						"/opt/AVR/root/avr/include/c++/14.1.0/backward",
+						"/opt/AVR/root/lib/gcc/avr/14.1.0/include",
+						"/opt/AVR/root/lib/gcc/avr/14.1.0/include-fixed",
+						"/opt/AVR/root/avr/include"
+					],
+					"linkDirectories" : 
+					[
+						"/opt/AVR/root/lib/gcc/avr/14.1.0",
+						"/opt/AVR/root/avr/lib"
+					],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : 
+					[
+						"gcc",
+						"m",
+						"gcc",
+						"m",
+						"c"
+					]
+				},
+				"path" : "/opt/AVR/root/bin/avr-g++",
+				"version" : "14.1.0"
+			},
+			"language" : "CXX",
+			"sourceFileExtensions" : 
+			[
+				"C",
+				"M",
+				"c++",
+				"cc",
+				"cpp",
+				"cxx",
+				"mm",
+				"mpp",
+				"CPP",
+				"ixx",
+				"cppm"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}
