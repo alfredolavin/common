@@ -3,8 +3,8 @@
         {
             "name": "AVR",
             "intelliSenseMode": "linux-gcc-arm",
-            "cStandard": "c23",
-            "cppStandard": "c++23",
+            "cStandard": "gnu23",
+            "cppStandard": "gnu++23",
             "includePath": [],
             "compilerArgs": [
                 "-g",
@@ -16,7 +16,8 @@
                 "-fno-threadsafe-statics",
                 "-pipe",
                 "-Ieduardino",
-                "-mmcu=attiny85"
+                "-mmcu=attiny85",
+                "-DF_CPU=8000000UL"
             ],
             "defines": [
                 "__AVR_ATtiny85__=1",

@@ -11,7 +11,9 @@
       "new": "cpp",
       "type_traits": "cpp",
       "typeinfo": "cpp",
-      "concepts": "cpp"
+      "concepts": "cpp",
+      "cmath": "cpp",
+      "algorithm": "cpp"
     },
     "hide-files.files": [
       "duchaRGB.code-workspace",

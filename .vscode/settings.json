@@ -38,7 +38,7 @@
   "AVR.device.frequency": 8000000,
   "AVR.programmer.type": "jtag2dw",
   "AVR.programmer.port": "usb",
-  "AVR.programmer.rate": 100,
+  "AVR.programmer.rate": 125000,
   "AVR.source.highlight": true,
   "AVR.hex.dump.enabled": true,
   "AVR.compiler.arguments": [
